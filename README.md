@@ -10,6 +10,8 @@
 
 *[Computer Vision Lab](https://vision.ee.ethz.ch/), ETH Zurich, Switzerland*
 
+
+### **This is a fork version that walks through how to evaluate FBCNN locally on images**
 ________
 :fire::fire: This repository is the official PyTorch implementation of paper "Towards Flexible Blind JPEG Artifacts Removal". [![paper download](https://img.shields.io/badge/arxiv-paper-red.svg)](https://arxiv.org/abs/2109.14573)
 FBCNN achieves **state-of-the-art performance** in blind JPEG artifacts removal on
@@ -17,44 +19,96 @@ FBCNN achieves **state-of-the-art performance** in blind JPEG artifacts removal 
 - Double JPEG images (aligned/non-aligned)
 - Real-world JPEG images
 
->Training a single deep blind model to handle different quality factors for JPEG image artifacts removal has been attracting considerable attention due to its convenience for practical usage. However, existing deep blind methods usually directly reconstruct the image without predicting the quality factor, thus lacking the flexibility to control the output as the non-blind methods. To remedy this problem, in this paper, we propose a flexible blind convolutional neural network, namely FBCNN, that can predict the adjustable quality factor to control the trade-off between artifacts removal and details preservation. Specifically, FBCNN decouples the quality factor from the JPEG image via a decoupler module and then embeds the predicted quality factor into the subsequent reconstructor module through a quality factor attention block for flexible control. Besides, we find existing methods are prone to fail on non-aligned double JPEG images even with only a one-pixel shift, and we thus propose a double JPEG degradation model to augment the training data. Extensive experiments on single JPEG images, more general double JPEG images, and real-world JPEG images demonstrate that our proposed FBCNN achieves favorable performance against state-of-the-art methods in terms of both quantitative metrics and visual quality.
-
 🚀🚀 Some Visual Examples (Click for full images)
 ----------
 |[<img src="figs/v1_.png" width="400px"/>](https://imgsli.com/NzA3NTk) |[<img src="figs/v3_.png" width="400px"/>](https://imgsli.com/NzA3NjI)|
-|:---:|:---:|
-|[<img src="figs/v2_.png" width="400px"/>](https://imgsli.com/NzA3NjE) |[<img src="figs/v4_.png" width="400px"/>](https://imgsli.com/NzA3NjM)|
-|[<img src="figs/v5_.png" width="400px"/>](https://imgsli.com/NzA3NjQ) |[<img src="figs/v6_.png" width="400px"/>](https://imgsli.com/NzA3NjU)|
-
 ________
 
-Training
-----------
+# Run FBCNN
 
-We will release the training code at [KAIR](https://github.com/cszn/KAIR/).
+Follow this YouTube [tutorial]() or if you have any questions feel free to join my [discord](https://discord.gg/sE8R7e45MV) and ask there.
+ 
+## Setup Environment
+We are going to use Anaconda3, download [Anaconda3](https://www.anaconda.com/products/individual) if you don't have it.  
+
+- Create conda environment:
+```
+conda create -n FBCNN python=3.7
+conda activate FBCNN
+```
+- Setup conda environment for nvidia non-30 series GPU:
+```
+conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
+```
+- Setup conda environment for nvidia 30 series GPU:
+```
+conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
+```
+- Setup the rest of the conda environment:
+
+**clone**/download this repository, and `cd` into the base folder in Anaconda Prompt of the folder you just cloned/downloaded. Then enter the following commands:
+```
+pip install -r requirements.txt
+```
+
+- *To reuse the created conda environment after you close the prompt, you just need to*:
+```
+conda activate FBCNN
+```
+
+## Setup Files
+
+Download the following files:
+- [fbcnn_color.pth](https://github.com/jiaxi-jiang/FBCNN/releases/download/v1.0/fbcnn_color.pth)
+- [fbcnn_gray.pth](https://github.com/jiaxi-jiang/FBCNN/releases/download/v1.0/fbcnn_gray.pth)
+- [fbcnn_gray_double.pth](https://github.com/jiaxi-jiang/FBCNN/releases/download/v1.0/fbcnn_gray_double.pth)
+
+File Structure:
+```
+📂FBCNN-main/ # this is root
+├── 📂model_zoo/
+├── 📜fbcnn_color.pth
+├── 📜fbcnn_gray.pth
+├── 📜fbcnn_gray_double.pth
+│   │...
+│...
+```
+
 
 Testing
 ----------
 
 - Grayscale JPEG images
+- 
+To test this, put your input images under `testsets/Classic5`
 ```bash
 python main_test_fbcnn_gray.py
 ```
 
 - Grayscale JPEG images, trained with double JPEG degradation model
+- 
+To test this, put your input images under `testsets/LIVE1_gray`
 ```bash
 python main_test_fbcnn_gray_doublejpeg.py
 ```
 
 - Color JPEG images
+- 
+To test this, put your input images under `testsets/LIVE1_color`
 ```bash
 python main_test_fbcnn_color.py
 ```
 
 - Real-World JPEG images
+- 
+To test this, put your input images under `testsets/Real`
 ```bash
 python main_test_fbcnn_color_real.py
 ```
+
+All results would be under `test_results`, check the according folders for what type of testing you've done.
+
+### This is the end of my fork edit.
 
 ___________
 
