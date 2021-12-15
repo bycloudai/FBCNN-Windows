@@ -79,28 +79,28 @@ Testing
 ----------
 
 - Grayscale JPEG images
-- 
+
 To test this, put your input images under `testsets/Classic5`
 ```bash
 python main_test_fbcnn_gray.py
 ```
 
 - Grayscale JPEG images, trained with double JPEG degradation model
-- 
+
 To test this, put your input images under `testsets/LIVE1_gray`
 ```bash
 python main_test_fbcnn_gray_doublejpeg.py
 ```
 
 - Color JPEG images
-- 
+
 To test this, put your input images under `testsets/LIVE1_color`
 ```bash
 python main_test_fbcnn_color.py
 ```
 
 - Real-World JPEG images
-- 
+
 To test this, put your input images under `testsets/Real`
 ```bash
 python main_test_fbcnn_color_real.py
