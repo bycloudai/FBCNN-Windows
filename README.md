@@ -44,6 +44,10 @@ conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
 ```
 conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
 ```
+- Setup conda env for non-nvidia GPU:
+```
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
+```
 - Setup the rest of the conda environment:
 
 **clone**/download this repository, and `cd` into the base folder in Anaconda Prompt of the folder you just cloned/downloaded. Then enter the following commands:
