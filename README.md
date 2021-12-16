@@ -26,7 +26,7 @@ ________
 
 # Run FBCNN
 
-Follow this YouTube [tutorial]() or if you have any questions feel free to join my [discord](https://discord.gg/sE8R7e45MV) and ask there.
+Follow this YouTube [tutorial](https://youtu.be/ZqE8E3SDOoQ) or if you have any questions feel free to join my [discord](https://discord.gg/sE8R7e45MV) and ask there.
  
 ## Setup Environment
 We are going to use Anaconda3, download [Anaconda3](https://www.anaconda.com/products/individual) if you don't have it.  
